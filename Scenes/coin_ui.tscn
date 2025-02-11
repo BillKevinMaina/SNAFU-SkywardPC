@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl5rs0s47gy6r"]
+
+[ext_resource type="Texture2D" uid="uid://banjsuifwmngc" path="res://sprites/coin.png" id="1_2k6os"]
+[ext_resource type="Script" path="res://Scripts/coin_ui.gd" id="1_2oeux"]
+[ext_resource type="FontFile" uid="uid://xgqjfy828m63" path="res://fonts/PixelOperator8-Bold.ttf" id="2_nc2ii"]
+
+[node name="coinUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2oeux")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 9.0
+offset_right = 34.0
+offset_bottom = 25.0
+scale = Vector2(4, 4)
+texture = ExtResource("1_2k6os")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 26.0
+offset_right = 87.0
+offset_bottom = 38.0
+scale = Vector2(4, 4)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_nc2ii")
+theme_override_font_sizes/font_size = 8
+text = "0 / 30 "

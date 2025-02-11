@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw3jccd8r4u4g"]
+
+[ext_resource type="AudioStream" uid="uid://clgum4x4p8nb0" path="res://sprites/mix_4m55s (audio-joiner.com).mp3" id="1_uup0u"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_uup0u")
+autoplay = true
+mix_target = 2
