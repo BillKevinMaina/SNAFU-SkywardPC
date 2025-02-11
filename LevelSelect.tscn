@@ -1,0 +1,442 @@
+[gd_scene load_steps=12 format=3 uid="uid://77aatnfngp1k"]
+
+[ext_resource type="Script" path="res://level_select.gd" id="1_s1o66"]
+[ext_resource type="Texture2D" uid="uid://cww72x3oag88y" path="res://fonts/Dropped Image (5).png" id="2_qs8fa"]
+[ext_resource type="FontFile" uid="uid://xgqjfy828m63" path="res://fonts/PixelOperator8-Bold.ttf" id="3_5l6qs"]
+[ext_resource type="Texture2D" uid="uid://d0jp1x3vbcly8" path="res://Controls/CONTROLS (Copy)/Sprites/shaded-dark/shadedDark35.png" id="3_srdkc"]
+[ext_resource type="Texture2D" uid="uid://ug1h0k3qjwia" path="res://Controls/CONTROLS (Copy)/Sprites/shaded-dark/shadedDark18.png" id="4_fdaas"]
+[ext_resource type="Script" path="res://touch_screen_button_2.gd" id="5_fr333"]
+[ext_resource type="Script" path="res://LeveLtoGame.gd" id="6_e6mcw"]
+[ext_resource type="Script" path="res://touch_screen_button_3.gd" id="6_voc42"]
+[ext_resource type="Script" path="res://touch_screen_button_4.gd" id="7_jjqbu"]
+[ext_resource type="Texture2D" uid="uid://cumlnkgha8i3s" path="res://fonts/Dropped Image (4).png" id="8_pg3o7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m1sq"]
+bg_color = Color(0.212806, 0.41681, 0.867775, 0.435294)
+draw_center = false
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s1o66")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qs8fa")
+
+[node name="Menu" type="Control" parent="."]
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -824.0
+offset_top = -468.0
+offset_right = 816.0
+offset_bottom = 464.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="PanelContainer" type="PanelContainer" parent="Menu/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3m1sq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer/PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Menu/MarginContainer/PanelContainer"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(8.00002, 256)
+scale = Vector2(1.71111, 0.688889)
+texture_normal = ExtResource("8_pg3o7")
+script = ExtResource("6_e6mcw")
+game_path = "res://game.tscn"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="Menu/MarginContainer/PanelContainer"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(912, 280)
+scale = Vector2(1.8, 0.6)
+texture_normal = ExtResource("8_pg3o7")
+script = ExtResource("5_fr333")
+game2_path = "res://game_2.tscn"
+
+[node name="TouchScreenButton3" type="TouchScreenButton" parent="Menu/MarginContainer/PanelContainer"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(128, 532)
+scale = Vector2(1.84444, 0.633333)
+texture_normal = ExtResource("8_pg3o7")
+script = ExtResource("6_voc42")
+game3_path = "res://game_3.tscn"
+
+[node name="TouchScreenButton4" type="TouchScreenButton" parent="Menu/MarginContainer/PanelContainer"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(888, 488)
+scale = Vector2(1.88889, 0.622222)
+texture_normal = ExtResource("8_pg3o7")
+script = ExtResource("7_jjqbu")
+game4_path = "res://game_4.tscn"
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="HEADER" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00694444
+anchor_top = 0.0123457
+anchor_right = 1.01476
+anchor_bottom = 0.260802
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.67451, 0.556863, 0.854902)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.82606, 0.82606, 0.82606, 1)
+theme_override_constants/line_spacing = 1
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_5l6qs")
+theme_override_font_sizes/font_size = 72
+text = "SNAFU: SKYWARD
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 160
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ROBIN" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0595534
+anchor_top = 0.277778
+anchor_right = 0.290456
+anchor_bottom = 0.456944
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.00392157, 0.431373, 0, 0.854902)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.82606, 0.82606, 0.82606, 1)
+theme_override_constants/line_spacing = 1
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_5l6qs")
+theme_override_font_sizes/font_size = 64
+text = "ROBIN
+HOOD"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 160
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="tLABEL" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.625
+anchor_top = 0.259259
+anchor_right = 0.989583
+anchor_bottom = 0.436111
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.792305, 0.335621, 3.85046e-07, 0.854902)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.82606, 0.82606, 0.82606, 1)
+theme_override_constants/line_spacing = 1
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_5l6qs")
+theme_override_font_sizes/font_size = 56
+text = "Talonar "
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 160
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="fLABEL" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.666667
+anchor_top = 0.580247
+anchor_right = 0.944444
+anchor_bottom = 0.779321
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0.427451, 0.854902)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.82606, 0.82606, 0.82606, 1)
+theme_override_constants/line_spacing = 1
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_5l6qs")
+theme_override_font_sizes/font_size = 64
+text = "FROST
+BYTE
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 160
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ROSCOW" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0208333
+anchor_top = 0.617284
+anchor_right = 0.354167
+anchor_bottom = 0.794136
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.559532, 0, 0, 0.854902)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.82606, 0.82606, 0.82606, 1)
+theme_override_constants/line_spacing = 1
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_5l6qs")
+theme_override_font_sizes/font_size = 64
+text = "ROSCOE"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 160
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="hEADER2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.140741
+anchor_right = 1.0
+anchor_bottom = 0.259259
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.67451, 0.556863, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.625597, 0.625597, 0.625597, 1)
+theme_override_constants/line_spacing = 1
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_5l6qs")
+theme_override_font_sizes/font_size = 24
+text = " TAP ANY STORY AND ESCAPE SKYWARD
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 160
+uppercase = true
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="QUIT2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.909722
+anchor_top = 0.0987654
+anchor_right = 0.99566
+anchor_bottom = 0.216821
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.67451, 0.556863, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_5l6qs")
+theme_override_font_sizes/font_size = 24
+text = "QUIT
+GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 160
+uppercase = true
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="Discord" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.905882)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.91358
+anchor_right = 1.01302
+anchor_bottom = 1.00772
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.67451, 0.556863, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_5l6qs")
+theme_override_font_sizes/font_size = 24
+text = "DO YOU LIKE SKYWARD? click here to join the community.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 160
+uppercase = true
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="RATE" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00694444
+anchor_top = 0.111111
+anchor_right = 0.0902778
+anchor_bottom = 0.229167
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.67451, 0.556863, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_5l6qs")
+theme_override_font_sizes/font_size = 24
+text = "ABOUT
+US"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 160
+uppercase = true
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(1, 0.67451, 0.556863, 0.992157)
+self_modulate = Color(1, 0.67451, 0.556863, 0.854902)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0208333
+anchor_top = 0.0493827
+anchor_right = 0.0755208
+anchor_bottom = 0.138889
+texture = ExtResource("4_fdaas")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+modulate = Color(1, 0.67451, 0.556863, 0.992157)
+self_modulate = Color(1, 0.67451, 0.556863, 0.854902)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.923611
+anchor_top = 0.037037
+anchor_right = 0.978299
+anchor_bottom = 0.126543
+texture = ExtResource("3_srdkc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="TouchScreenButton" parent="TextureRect3"]
+modulate = Color(1, 1, 1, 0.0156863)
+self_modulate = Color(1, 1, 1, 0.0431373)
+position = Vector2(-40.5356, -13.6)
+scale = Vector2(0.355556, 0.4)
+texture_normal = ExtResource("8_pg3o7")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0208333
+anchor_top = 0.45679
+anchor_right = 0.335938
+anchor_bottom = 0.577161
+theme_override_colors/font_color = Color(0.00326589, 0.395519, 2.88785e-07, 1)
+theme_override_fonts/font = ExtResource("3_5l6qs")
+theme_override_font_sizes/font_size = 24
+text = "ESCAPING SKWARD:
+ROBINHOOD
+(EASY)"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.652778
+anchor_top = 0.419753
+anchor_right = 0.967882
+anchor_bottom = 0.540123
+theme_override_colors/font_color = Color(0.707146, 0.297893, 0, 1)
+theme_override_fonts/font = ExtResource("3_5l6qs")
+theme_override_font_sizes/font_size = 24
+text = "ESCAPING SKWARD:
+TALONAR
+(MODERATE)"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.652778
+anchor_top = 0.790123
+anchor_right = 0.967882
+anchor_bottom = 0.910494
+theme_override_colors/font_color = Color(0, 0, 0.427451, 1)
+theme_override_fonts/font = ExtResource("3_5l6qs")
+theme_override_font_sizes/font_size = 24
+text = "ESCAPING SKWARD:
+FROSTBYTE
+(IMPOSSIBLE)"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0277778
+anchor_top = 0.777778
+anchor_right = 0.342882
+anchor_bottom = 0.898149
+theme_override_colors/font_color = Color(0.560784, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_5l6qs")
+theme_override_font_sizes/font_size = 24
+text = "ESCAPING SKWARD:
+ROSCOE
+(VERY HARD)"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LinkButton" type="LinkButton" parent="."]
+layout_mode = 0
+anchor_top = 0.91358
+anchor_right = 1.00174
+anchor_bottom = 1.01235
+offset_right = -2.0
+underline = 1
+uri = "https://discord.gg/AFG65kty"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Menu/MarginContainer/PanelContainer/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/PanelContainer/TouchScreenButton2" to="." method="_on_touch_screen_button_2_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/PanelContainer/TouchScreenButton3" to="." method="_on_touch_screen_button_3_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/PanelContainer/TouchScreenButton4" to="." method="_on_touch_screen_button_4_pressed"]
+[connection signal="pressed" from="TextureRect3/Quit" to="." method="_on_quit_pressed"]

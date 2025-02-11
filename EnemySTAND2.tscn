@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://v3gyahu0wdwn"]
+
+[ext_resource type="Script" path="res://still_enemy.gd" id="1_qemry"]
+[ext_resource type="PackedScene" uid="uid://5quqsowf4i2j" path="res://Killzone.tscn" id="3_itxpv"]
+[ext_resource type="Texture2D" uid="uid://bfhbimkirqu08" path="res://Pixel Adventure 1/Free/Traps/Spikes/Idle.png" id="4_r72np"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3sns"]
+atlas = ExtResource("4_r72np")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w512e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3sns")
+}],
+"loop": true,
+"name": &"Idle E",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yecr4"]
+size = Vector2(18, 8)
+
+[node name="StillEnemy" type="Node2D"]
+light_mask = 2
+script = ExtResource("1_qemry")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.5, 10)
+scale = Vector2(1.3125, 1.125)
+sprite_frames = SubResource("SpriteFrames_w512e")
+animation = &"Idle E"
+autoplay = "Idle E"
+frame_progress = 0.802515
+
+[node name="KIlllzone" parent="." instance=ExtResource("3_itxpv")]
+position = Vector2(-1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KIlllzone"]
+light_mask = 2
+position = Vector2(-1, 16)
+shape = SubResource("RectangleShape2D_yecr4")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

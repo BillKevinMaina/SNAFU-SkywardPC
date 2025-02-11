@@ -1,0 +1,184 @@
+[gd_scene load_steps=5 format=3 uid="uid://c15nno5kn6m1p"]
+
+[ext_resource type="Texture2D" uid="uid://cww72x3oag88y" path="res://fonts/Dropped Image (5).png" id="1_p7pky"]
+[ext_resource type="PackedScene" uid="uid://bpab4bm77sdrn" path="res://control.tscn" id="2_hkj7x"]
+[ext_resource type="FontFile" uid="uid://xgqjfy828m63" path="res://fonts/PixelOperator8-Bold.ttf" id="3_s2l4q"]
+[ext_resource type="Texture2D" uid="uid://cumlnkgha8i3s" path="res://fonts/Dropped Image (4).png" id="5_0epkk"]
+
+[node name="OPTIONS" type="CanvasLayer"]
+
+[node name="BackGround" type="Sprite2D" parent="."]
+position = Vector2(-272, -136)
+scale = Vector2(3.08415, 2.44849)
+texture = ExtResource("1_p7pky")
+centered = false
+
+[node name="Menu" type="Control" parent="."]
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Volume Slider" parent="Menu" instance=ExtResource("2_hkj7x")]
+layout_mode = 0
+offset_left = -799.0
+offset_top = -348.0
+offset_right = -231.0
+offset_bottom = -316.0
+scale = Vector2(2, 2)
+bus_name = "Master"
+
+[node name="Volume Slider3" parent="Menu" instance=ExtResource("2_hkj7x")]
+layout_mode = 0
+offset_left = -792.0
+offset_top = -84.0
+offset_right = -224.0
+offset_bottom = -52.0
+scale = Vector2(2, 2)
+bus_name = "SFX"
+
+[node name="Label3" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -832.0
+offset_top = -452.0
+offset_right = -118.0
+offset_bottom = -396.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.854902)
+theme_override_colors/font_shadow_color = Color(1, 0.67451, 0.556863, 0.854902)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_s2l4q")
+theme_override_font_sizes/font_size = 48
+text = "MASTER VOLUME
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 160
+uppercase = true
+
+[node name="Label5" type="Label" parent="Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -776.0
+offset_top = -196.0
+offset_right = -237.0
+offset_bottom = -140.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.854902)
+theme_override_colors/font_shadow_color = Color(1, 0.67451, 0.556863, 0.854902)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_s2l4q")
+theme_override_font_sizes/font_size = 48
+text = "SFX VOLUME
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 160
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+layout_mode = 0
+offset_left = 976.0
+offset_top = 468.0
+offset_right = 1016.0
+offset_bottom = 508.0
+
+[node name="ButtonContainer" type="MarginContainer" parent="Menu"]
+layout_mode = 0
+offset_left = -928.0
+offset_top = 324.0
+offset_right = -80.0
+offset_bottom = 540.0
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Menu/ButtonContainer"]
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0, 0, 0, 0.823529)
+theme_override_colors/font_outline_color = Color(1, 0.67451, 0.556863, 0.87451)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 48
+text = "APPPLY CHANGES
+-GO to game
+"
+
+[node name="Start" type="TouchScreenButton" parent="Menu/ButtonContainer"]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(-920, -548)
+scale = Vector2(2.22222, 0.466667)
+texture_normal = ExtResource("5_0epkk")
+action = "ui_accept"
+
+[node name="Label7" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -608.0
+offset_top = 600.0
+offset_right = 176.0
+offset_bottom = 656.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.854902)
+theme_override_colors/font_shadow_color = Color(1, 0.67451, 0.556863, 0.854902)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_s2l4q")
+theme_override_font_sizes/font_size = 48
+text = "HIGH RESOLUTION
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 160
+uppercase = true
+
+[node name="Label8" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -624.0
+offset_top = 712.0
+offset_right = 160.0
+offset_bottom = 768.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.854902)
+theme_override_colors/font_shadow_color = Color(1, 0.67451, 0.556863, 0.854902)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_s2l4q")
+theme_override_font_sizes/font_size = 48
+text = "baterry saving
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 160
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 1032.0
+offset_top = 552.0
+offset_right = 1072.0
+offset_bottom = 592.0
+
+[node name="CheckBox" type="CheckBox" parent="."]
+offset_left = 120.0
+offset_top = 572.0
+offset_right = 136.0
+offset_bottom = 596.0
+scale = Vector2(5, 5)
+
+[node name="CheckBox2" type="CheckBox" parent="."]
+offset_left = 120.0
+offset_top = 692.0
+offset_right = 137.0
+offset_bottom = 716.0
+scale = Vector2(5, 5)

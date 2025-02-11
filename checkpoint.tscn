@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3tjp3gpmyl6j"]
+
+[ext_resource type="Texture2D" uid="uid://1exhg5sg7y26" path="res://sprites/tile_0111.png" id="1_eqeuu"]
+[ext_resource type="Texture2D" uid="uid://dindvaq1ih31q" path="res://sprites/tile_0112.png" id="2_vli3i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i6qg0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_eqeuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_vli3i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npsrh"]
+size = Vector2(5, 18)
+
+[node name="Checkpoint" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i6qg0")
+autoplay = "default"
+frame_progress = 0.466071
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, 1)
+shape = SubResource("RectangleShape2D_npsrh")

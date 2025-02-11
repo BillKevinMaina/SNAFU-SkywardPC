@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ovsfxnieuqsk"]
+
+[ext_resource type="Script" path="res://Optiions.gd" id="1_e7d8g"]
+[ext_resource type="Texture2D" uid="uid://con0duggqlnmq" path="res://Controls/CONTROLS (Copy)/Sprites/transparent-dark/transparentDark31.png" id="2_gp357"]
+
+[node name="Volume Slider" type="HSlider"]
+offset_right = 184.0
+offset_bottom = 120.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_e7d8g")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 32)
+scale = Vector2(5, 1)
+texture_normal = ExtResource("2_gp357")

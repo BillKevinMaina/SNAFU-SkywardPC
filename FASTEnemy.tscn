@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://c8mnkypvc262m"]
+
+[ext_resource type="Texture2D" uid="uid://b04hwi1jdvaiq" path="res://sprites/slime_green.png" id="2_p4pjf"]
+[ext_resource type="PackedScene" uid="uid://5quqsowf4i2j" path="res://Killzone.tscn" id="3_33hsk"]
+
+[sub_resource type="GDScript" id="GDScript_utrv6"]
+script/source = "extends Node2D
+
+const speed = 160
+
+var direction = 1
+
+
+@onready var ray_cast_left: RayCast2D = $RayCastLEFT
+@onready var ray_cast_right: RayCast2D = $RayCastRIGHT
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+#called every frame. 'delta' is time elapsed since the last frame
+func _process(delta):
+	if ray_cast_right.is_colliding():
+		direction = 1
+		animated_sprite.flip_h = true
+	if ray_cast_left.is_colliding():
+		direction = -1
+	animated_sprite.flip_h = false
+	
+	
+	position.x += direction * speed * delta
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce7gl"]
+atlas = ExtResource("2_p4pjf")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxqdp"]
+atlas = ExtResource("2_p4pjf")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvpbc"]
+atlas = ExtResource("2_p4pjf")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usm1p"]
+atlas = ExtResource("2_p4pjf")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w512e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ce7gl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxqdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvpbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usm1p")
+}],
+"loop": true,
+"name": &"Idle E",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yecr4"]
+size = Vector2(10, 11)
+
+[node name="FASTEnemy" type="Node2D"]
+script = SubResource("GDScript_utrv6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(-1, -0.5)
+scale = Vector2(1, 0.958333)
+sprite_frames = SubResource("SpriteFrames_w512e")
+animation = &"Idle E"
+autoplay = "Idle E"
+frame_progress = 0.592247
+
+[node name="RayCastLEFT" type="RayCast2D" parent="."]
+position = Vector2(-2, 6)
+target_position = Vector2(-8, 0)
+
+[node name="RayCastRIGHT" type="RayCast2D" parent="."]
+position = Vector2(-2, 6)
+target_position = Vector2(12, 0)
+
+[node name="KIlllzone" parent="." instance=ExtResource("3_33hsk")]
+position = Vector2(-1, -1)
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KIlllzone"]
+visibility_layer = 2
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_yecr4")

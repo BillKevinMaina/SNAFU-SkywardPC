@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://c3rd4fp0ltre4"]
+
+[ext_resource type="Texture2D" uid="uid://c4jilhdp6yj6i" path="res://sprites/slime_purple.png" id="1_grwso"]
+[ext_resource type="Script" path="res://enemy.gd" id="1_tba8r"]
+[ext_resource type="PackedScene" uid="uid://5quqsowf4i2j" path="res://Killzone.tscn" id="2_ss0hf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mqws"]
+atlas = ExtResource("1_grwso")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tspys"]
+atlas = ExtResource("1_grwso")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6wdd"]
+atlas = ExtResource("1_grwso")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axcu4"]
+atlas = ExtResource("1_grwso")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w512e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mqws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tspys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6wdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axcu4")
+}],
+"loop": true,
+"name": &"Idle E",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8g0xy"]
+radius = 6.0
+
+[node name="Enemy" type="Node2D"]
+light_mask = 2
+script = ExtResource("1_tba8r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -1)
+sprite_frames = SubResource("SpriteFrames_w512e")
+animation = &"Idle E"
+autoplay = "Idle E"
+frame = 2
+frame_progress = 0.208158
+
+[node name="RayCastLEFT" type="RayCast2D" parent="."]
+position = Vector2(-2, 6)
+target_position = Vector2(-8, 0)
+
+[node name="RayCastRIGHT" type="RayCast2D" parent="."]
+position = Vector2(-2, 6)
+target_position = Vector2(12, 0)
+
+[node name="KIlllzone" parent="." instance=ExtResource("2_ss0hf")]
+position = Vector2(-1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KIlllzone"]
+light_mask = 2
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_8g0xy")

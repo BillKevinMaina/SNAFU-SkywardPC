@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://dp8e56n4ckr8p"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_kkl0s"]
+[ext_resource type="Texture2D" uid="uid://bbs53jr8olks8" path="res://sprites/robinHood_.png" id="2_3bhwf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4j4q"]
+atlas = ExtResource("2_3bhwf")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sna5c"]
+atlas = ExtResource("2_3bhwf")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7on5"]
+atlas = ExtResource("2_3bhwf")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_euhbl"]
+atlas = ExtResource("2_3bhwf")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh734"]
+atlas = ExtResource("2_3bhwf")
+region = Rect2(48, 120, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ai45"]
+atlas = ExtResource("2_3bhwf")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdx62"]
+atlas = ExtResource("2_3bhwf")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oih34"]
+atlas = ExtResource("2_3bhwf")
+region = Rect2(72, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fibxs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4j4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sna5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7on5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_euhbl")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh734")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ai45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdx62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oih34")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 9.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ouduo"]
+radius = 5.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_kkl0s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fibxs")
+animation = &"Jump"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_ouduo")
